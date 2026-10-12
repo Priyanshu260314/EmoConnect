@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Compatibility Checker | EmoConnect AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="theme-romantic">
+
+<nav class="site-nav">
+    <a href="{{ url_for('home') }}" class="brand">💗 EmoConnect AI</a>
+    <div class="nav-links">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('similarity') }}">Compatibility</a>
+        <a href="{{ url_for('letter') }}">Love Letter</a>
+    </div>
+</nav>
+
+<main class="tool-section">
+    <div class="tool-card">
+        <h1>💞 Compatibility Checker</h1>
+        <p>Compare two messages and discover their shared words and detected emotions.</p>
+
+        <form action="{{ url_for('similarity') }}" method="POST">
+            <label for="text1">Person 1's Message</label>
+            <textarea id="text1" name="text1" rows="5"
+                placeholder="Write the first message..." required>{{ text1|default('') }}</textarea>
+
+            <label for="text2">Person 2's Message</label>
+            <textarea id="text2" name="text2" rows="5"
+                placeholder="Write the second message..." required>{{ text2|default('') }}</textarea>
+
+            <button type="submit">Check Compatibility 💗</button>
+        </form>
+
+        {% if score is not none %}
+        <div class="result">
+            <h2>Comparison Results</h2>
+            <h3>{{ score }}% Word Similarity</h3>
+            <p>This score measures shared words, not actual relationship compatibility.</p>
+
+            <p><strong>Person 1's detected emotion:</strong> {{ emotion1 }}</p>
+            <p><strong>Person 2's detected emotion:</strong> {{ emotion2 }}</p>
+            <p><strong>Shared words:</strong> {{ common_words }}</p>
+        </div>
+        {% endif %}
+    </div>
+</main>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
