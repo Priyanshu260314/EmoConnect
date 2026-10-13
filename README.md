@@ -77,19 +77,16 @@ Follow these steps to run EmoConnect on your computer.
 
 ### Step 1: Clone the Repository
 
-```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-```
 
-Replace `YOUR_GITHUB_REPOSITORY_URL` with your actual GitHub repository URL.
+git clone (https://github.com/Priyanshu260314/EmoConnect.git)
+
+Replace `(https://github.com/Priyanshu260314/EmoConnect.git)` with your actual GitHub repository URL.
 
 Alternatively, download the repository as a ZIP file from GitHub and extract it.
 
 ### Step 2: Open the Project Folder
 
-```bash
 cd EmoConnect
-```
 
 Open this folder in VS Code.
 
